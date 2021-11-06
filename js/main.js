@@ -2,7 +2,7 @@
 // Dynamically update date, add more months depending on the current month
 const a = new Date();
 const b = new Date(a.setMonth(a.getMonth()+(13-a.getMonth())));
-const updatedDate = `${b.toLocaleString('en-us', { month: 'short' })} ${b.getDay()} ${b.getFullYear()}`;
+const updatedDate = `${b.toLocaleString('en-us', { month: 'short' })} ${b.getDate()} ${b.getFullYear()}`;
 /**/
 $(window).load(function(){
      $('.preloader').fadeOut('slow');
