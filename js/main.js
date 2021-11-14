@@ -1,9 +1,15 @@
 /**/
 // Dynamically update date, add more months depending on the current month
-const a = new Date();
-const b = new Date(a.setMonth(a.getMonth()+(13-a.getMonth())));
-const updatedDate = `${b.toLocaleString('en-us', { month: 'short' })} ${b.getDate()} ${b.getFullYear()}`;
+// const a = new Date();
+// const b = new Date(a.setMonth(a.getMonth()+(13-a.getMonth())));
+
+// Update countdown so that it cycles within 7 days
+const currentDate = new Date();
+const randomNumber = Math.floor(Math.random() * 7) + 2; // range random date between 2 to 7 days
+currentDate.setDate(currentDate.getDate() + randomNumber);
+const updatedDate = `${currentDate.toLocaleString('en-us', { month: 'short' })} ${currentDate.getDate()} ${currentDate.getFullYear()}`;
 /**/
+
 $(window).load(function(){
      $('.preloader').fadeOut('slow');
 });
@@ -62,7 +68,6 @@ $(window).load(function(){
 
 
 $('#countdown').countdown({
-	// date: "Nov 7 2021",
 	date: updatedDate,
 	render: function(data) {
 	  var el = $(this.el);
