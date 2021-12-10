@@ -5,7 +5,9 @@
 
 // Update countdown so that it cycles within 7 days
 const currentDate = new Date();
-const randomNumber = Math.floor(Math.random() * 7) + 2; // range random date between 2 to 7 days
+// const randomNumber = Math.floor(Math.random() * 7) + 2; // range random date between 2 to 7 days
+let randomNumber = parseInt(currentDate.getDate())%5;
+if(randomNumber==0){randomNumber=2;}
 currentDate.setDate(currentDate.getDate() + randomNumber);
 const updatedDate = `${currentDate.toLocaleString('en-us', { month: 'short' })} ${currentDate.getDate()} ${currentDate.getFullYear()}`;
 /**/
